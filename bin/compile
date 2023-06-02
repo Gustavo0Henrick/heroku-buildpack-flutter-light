@@ -104,6 +104,10 @@ eval $FLUTTER_BUILD | indent
 # Saving SDK in Cache
 if [ -x .flutter/bin/flutter ]; then
   print "Saving Flutter SDK in Cache"
+  export PATH=\$PATH:$SOURCE_DIR/.flutter/bin/
+  export PATH=\$PATH:$SOURCE_DIR/.flutter/bin/cache/dart-sdk/bin/
+  export PATH=\$PATH:$SOURCE_DIR/.pub-cache/bin
+  echo "web: \$PATH:$SOURCE_DIR/.flutter/bin/cache/dart-sdk/bin/dart pub global run dhttpd --host 0.0.0.0 --path ${DEPLOY_DIR}" > Procfile
   rm -rf $CACHE_DIR/.flutter
   rm -rf $CACHE_DIR/.pub-cache
 
