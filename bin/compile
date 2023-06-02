@@ -130,7 +130,7 @@ rm -rf $SOURCE_DIR/build
 # heroku-buildpac-static compatibility
 if [ ! -f $BUILD_DIR/static.json ]; then
   echo "{}" > $BUILD_DIR/static.json
-  echo "web: python print('Running')" > Procfile
+  echo "web: python print 'Running' " > Procfile
 fi
 
 if [ "$FLUTTER_CLEANUP" == false ]; then
