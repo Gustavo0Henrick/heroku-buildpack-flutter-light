@@ -130,7 +130,7 @@ rm -rf $SOURCE_DIR/build
 # heroku-buildpac-static compatibility
 if [ ! -f $BUILD_DIR/static.json ]; then
   echo "{}" > $BUILD_DIR/static.json
-  echo "web: /app/dart-sdk/bin/dart pub global run dhttpd --host 0.0.0.0 --path ${DEPLOY_DIR}" > Procfile
+  echo "web: python -m http.server 8000" > Procfile
 fi
 
 if [ "$FLUTTER_CLEANUP" == false ]; then
