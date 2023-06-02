@@ -125,12 +125,12 @@ fi
 print "Moving static files to the deploy dir"
 mkdir -p $DEPLOY_DIR
 mv $SOURCE_DIR/build/web/* $DEPLOY_DIR
-$DEPLOY_DIR echo "web: flutter build web" > Procfile
 rm -rf $SOURCE_DIR/build
 
 # heroku-buildpac-static compatibility
 if [ ! -f $BUILD_DIR/static.json ]; then
   echo "{}" > $BUILD_DIR/static.json
+  echo "web: flutter build web" > Procfile
 fi
 
 if [ "$FLUTTER_CLEANUP" == false ]; then
