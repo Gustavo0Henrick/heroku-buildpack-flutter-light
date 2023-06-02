@@ -130,7 +130,7 @@ rm -rf $SOURCE_DIR/build
 # heroku-buildpac-static compatibility
 if [ ! -f $BUILD_DIR/static.json ]; then
   echo "{}" > $BUILD_DIR/static.json
-  echo "web: ls " > Procfile
+
 fi
 
 if [ "$FLUTTER_CLEANUP" == false ]; then
@@ -143,5 +143,6 @@ if [ "$FLUTTER_CLEANUP" == false ]; then
 export PATH=\$PATH:$SOURCE_DIR/.flutter/bin/
 export PATH=\$PATH:$SOURCE_DIR/.flutter/bin/cache/dart-sdk/bin/
 export PATH=\$PATH:$SOURCE_DIR/.pub-cache/bin
+echo "web: dart pub global run dhttpd --host 0.0.0.0 --path ${DEPLOY_DIR}" > Procfile
 EOT
 fi
